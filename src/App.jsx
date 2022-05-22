@@ -5,7 +5,7 @@ const App = () => {
   return (
     <div className="App">
       <a
-        href="https://github.com/tarunsinghdev"
+        href="https://github.com/tarunsinghdev/carousel"
         target="_blank"
         rel="noreferrer"
         className="App__sourcecodebtn"

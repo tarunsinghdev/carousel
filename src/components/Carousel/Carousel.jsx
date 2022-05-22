@@ -24,7 +24,6 @@ const Carousel = () => {
     <div className={styles.Carousel}>
       {loading && <div className={styles.loading}>Loading...</div>}
       {!loading && heroImage()}
-      {console.log(data)}
       <ImageList
         limit={limit}
         data={data}

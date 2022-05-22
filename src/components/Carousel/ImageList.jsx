@@ -6,13 +6,7 @@ const ImageList = ({ limit, data, activeImage, setActiveImage }) => {
   const [image, setImage] = useState([]);
 
   useEffect(() => {
-    // if (activeImage + 1 > image.length) {
-    //   const imageResult = data.slice(activeImage + 1 - limit, activeImage + 1);
-    //   setImage(imageResult);
-    // }
     if (!image.length) {
-      // const imageResult = data.slice(activeImage, limit);
-      // setImage(imageResult);
       setImage(data);
       return;
     }
@@ -38,31 +32,24 @@ const ImageList = ({ limit, data, activeImage, setActiveImage }) => {
     }
   };
 
-  console.log('activeImage', activeImage);
-
   return (
     <div className={styles.ImageList}>
       <button disabled={activeImage === 0} onClick={onPrevClickHandler}>
         &#8678;
       </button>
-      {image
-        // .slice(
-        //   activeImage ,
-        //   limit + Math.floor(activeImage / limit)
-        // )
-        .map((item, index) => (
-          <img
-            onClick={(e) => setActiveImage(item.id)}
-            style={
-              Number(item.id) === Number(activeImage)
-                ? { border: '2px solid red' }
-                : {}
-            }
-            key={item.id}
-            src={item.download_url}
-            alt={item.name}
-          />
-        ))}
+      {image.map((item, index) => (
+        <img
+          onClick={(e) => setActiveImage(item.id)}
+          style={
+            Number(item.id) === Number(activeImage)
+              ? { border: '2px solid red' }
+              : {}
+          }
+          key={item.id}
+          src={item.download_url}
+          alt={item.name}
+        />
+      ))}
       <button
         onClick={onNextClickHandler}
         disabled={activeImage === data.length - 1}
