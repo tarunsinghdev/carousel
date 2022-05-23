@@ -2,7 +2,13 @@ import React, { useEffect, useState } from 'react';
 
 import styles from './carousel.module.scss';
 
-const ImageList = ({ limit, data, activeImage, setActiveImage }) => {
+const ImageList = ({
+  limit,
+  data,
+  activeImage,
+  setActiveImage,
+  onNextClickHandler,
+}) => {
   const [image, setImage] = useState([]);
 
   useEffect(() => {
@@ -19,16 +25,6 @@ const ImageList = ({ limit, data, activeImage, setActiveImage }) => {
       setActiveImage(data[data.length - 1].id);
     } else {
       setActiveImage(data[findPrev].id);
-    }
-  };
-
-  const onNextClickHandler = () => {
-    const findNext =
-      data.findIndex((item) => Number(item.id) === Number(activeImage)) + 1;
-    if (findNext >= data.length) {
-      setActiveImage(data[0].id);
-    } else {
-      setActiveImage(data[findNext].id);
     }
   };
 

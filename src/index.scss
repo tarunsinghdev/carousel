@@ -1,3 +1,18 @@
+@mixin buttonStyle {
+  position: fixed;
+  text-decoration: none;
+  top: 1rem;
+  right: 2rem;
+  background-color: #2c943f;
+  color: white;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  &:hover {
+    background-color: #2ea043;
+  }
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -9,17 +24,6 @@ body {
 }
 .App {
   .App__sourcecodebtn {
-    position: fixed;
-    text-decoration: none;
-    top: 1rem;
-    right: 2rem;
-    background-color: #2c943f;
-    color: white;
-    padding: 0.5rem;
-    cursor: pointer;
-    border-radius: 0.5rem;
-    &:hover {
-      background-color: #2ea043;
-    }
+    @include buttonStyle();
   }
 }
